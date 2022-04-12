@@ -4,7 +4,10 @@ namespace StarfolkSoftware\Levy;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use StarfolkSoftware\Levy\Commands\LevyCommand;
+use StarfolkSoftware\Levy\Actions\CreateTax;
+use StarfolkSoftware\Levy\Actions\DeleteTax;
+use StarfolkSoftware\Levy\Actions\UpdateTax;
+use StarfolkSoftware\Levy\Commands\InstallCommand;
 
 class LevyServiceProvider extends PackageServiceProvider
 {
@@ -18,8 +21,23 @@ class LevyServiceProvider extends PackageServiceProvider
         $package
             ->name('levy')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_taxes_table')
-            ->hasCommand(LevyCommand::class);
+            ->hasCommand(InstallCommand::class);
+
+        if (Levy::$runsMigrations) {
+            $package->hasMigration('create_taxes_table');
+        }
+
+        if (Levy::$registersRoutes) {
+            $package->hasRoutes('web');
+        }
+    }
+    
+    public function packageRegistered()
+    {
+        Levy::createTaxesUsing(CreateTax::class);
+
+        Levy::updateTaxesUsing(UpdateTax::class);
+
+        Levy::deleteTaxesUsing(DeleteTax::class);
     }
 }
