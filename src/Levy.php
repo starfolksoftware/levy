@@ -75,6 +75,19 @@ class Levy
     }
 
     /**
+     * Specify the tenant model that should be used by Levy.
+     *
+     * @param  string  $model
+     * @return static
+     */
+    public static function useTenantModel(string $model)
+    {
+        static::$tenantModel = $model;
+
+        return new static;
+    }
+
+    /**
      * Get a new instance of the tenant model.
      *
      * @return mixed
@@ -84,6 +97,17 @@ class Levy
         $model = static::tenantModel();
 
         return new $model;
+    }
+
+    /**
+     * Find a tenant instance by the given ID.
+     *
+     * @param  mixed  $id
+     * @return mixed
+     */
+    public static function findTenantByIdOrFail($id)
+    {
+        return static::newTenantModel()->whereId($id)->firstOrFail();
     }
 
     /**
@@ -219,6 +243,18 @@ class Levy
     public static function tenantable()
     {
         static::$supportsTenants = true;
+
+        return new static;
+    }
+
+    /**
+     * Reset support for multiple tenants.
+     *
+     * @return static
+     */
+    public static function resetTenantableOption()
+    {
+        static::$supportsTenants = false;
 
         return new static;
     }

@@ -9,7 +9,8 @@ interface CreatesTaxes
      *
      * @param  mixed  $user
      * @param  array  $data
+     * @param  mixed  $tenantId
      * @return \StarfolkSoftware\Levy\Tax
      */
-    public function __invoke($user, array $data);
+    public function __invoke($user, array $data, $tenantId = null);
 }

@@ -24,8 +24,7 @@ class TaxController extends Controller
         );
 
         return request()->wantsJson() ? response()->json([]) : redirect()->to(
-            request()->get('redirect'),
-            Levy::redirects('store', '/')
+            request()->get('redirect', Levy::redirects('store', '/'))
         );
     }
 
@@ -45,8 +44,7 @@ class TaxController extends Controller
         );
 
         return request()->wantsJson() ? response()->json([]) : redirect()->to(
-            request()->get('redirect'),
-            Levy::redirects('store', '/')
+            request()->get('redirect', Levy::redirects('update', '/'))
         );
     }
 
@@ -65,8 +63,7 @@ class TaxController extends Controller
         );
 
         return request()->wantsJson() ? response()->json([]) : redirect()->to(
-            request()->get('redirect'),
-            Levy::redirects('store', '/')
+            request()->get('redirect', Levy::redirects('destroy', '/'))
         );
     }
 }

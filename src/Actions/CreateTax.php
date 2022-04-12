@@ -13,9 +13,10 @@ class CreateTax implements CreatesTaxes
      *
      * @param  mixed  $user
      * @param  array  $data
+     * @param  mixed  $tenantId
      * @return \StarfolkSoftware\Levy\Tax
      */
-    public function __invoke($user, array $data)
+    public function __invoke($user, array $data, $tenantId = null)
     {
         if (Levy::$validateTaxCreation) {
             call_user_func(
@@ -31,8 +32,14 @@ class CreateTax implements CreatesTaxes
             'rate' => 'required|numeric',
         ])->validateWithBag('createTax');
 
+        $fields = collect($data)->only([
+            'type',
+            'name',
+            'rate',
+        ])->toArray();
+
         return Levy::$supportsTenants ?
-            Levy::newTenantModel()->taxes()->create($data) : 
-            Levy::newTaxModel()->create($data);
+            Levy::findTenantByIdOrFail($tenantId)->taxes()->create($fields) : 
+            Levy::newTaxModel()->create($fields);
     }
 }
