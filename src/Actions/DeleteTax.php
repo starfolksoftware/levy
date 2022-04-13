@@ -2,9 +2,9 @@
 
 namespace StarfolkSoftware\Levy\Actions;
 
-use StarfolkSoftware\Levy\Tax;
 use StarfolkSoftware\Levy\Contracts\DeletesTaxes;
 use StarfolkSoftware\Levy\Levy;
+use StarfolkSoftware\Levy\Tax;
 
 class DeleteTax implements DeletesTaxes
 {

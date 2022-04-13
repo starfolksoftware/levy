@@ -6,7 +6,7 @@ trait TenantHasTaxes
 {
     /**
      * Get the taxes associated with the tenant.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function taxes()

@@ -21,7 +21,7 @@ it('can create a tax with multi-tenant support', function () {
     $user = TestUser::first();
 
     $tax = $createsTaxes(
-        $user, 
+        $user,
         [
             'type' => 'normal',
             'name' => 'Tax',
@@ -29,7 +29,7 @@ it('can create a tax with multi-tenant support', function () {
         ],
         $tenant->id,
     );
-    
+
     expect($tax->refresh())
         ->type->toBe('normal')
         ->name->toBe('Tax')

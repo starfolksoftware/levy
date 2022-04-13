@@ -39,7 +39,7 @@ class CreateTax implements CreatesTaxes
         ])->toArray();
 
         return Levy::$supportsTenants ?
-            Levy::findTenantByIdOrFail($tenantId)->taxes()->create($fields) : 
+            Levy::findTenantByIdOrFail($tenantId)->taxes()->create($fields) :
             Levy::newTaxModel()->create($fields);
     }
 }

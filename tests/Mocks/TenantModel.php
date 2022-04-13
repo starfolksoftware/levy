@@ -8,6 +8,6 @@ use StarfolkSoftware\Levy\TenantHasTaxes;
 class TenantModel extends Model
 {
     use TenantHasTaxes;
-    
+
     protected $table = 'tenants';
 }

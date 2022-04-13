@@ -19,7 +19,7 @@ class Tax extends Model
 
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @var array
      */
     protected $fillable = [
@@ -37,7 +37,7 @@ class Tax extends Model
 
     /**
      * Get the tenant that owns the tax.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function tenant()

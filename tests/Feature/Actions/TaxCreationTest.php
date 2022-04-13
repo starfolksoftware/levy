@@ -13,13 +13,14 @@ it('can create a tax', function () {
     $user = TestUser::first();
 
     $tax = $createsTaxes(
-        $user, [
+        $user,
+        [
             'type' => 'normal',
             'name' => 'Tax',
             'rate' => 7.5,
         ]
     );
-    
+
     expect($tax->refresh())
         ->type->toBe('normal')
         ->name->toBe('Tax')

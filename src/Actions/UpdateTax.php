@@ -2,10 +2,10 @@
 
 namespace StarfolkSoftware\Levy\Actions;
 
-use StarfolkSoftware\Levy\Tax;
 use Illuminate\Support\Facades\Validator;
 use StarfolkSoftware\Levy\Contracts\UpdatesTaxes;
 use StarfolkSoftware\Levy\Levy;
+use StarfolkSoftware\Levy\Tax;
 
 class UpdateTax implements UpdatesTaxes
 {

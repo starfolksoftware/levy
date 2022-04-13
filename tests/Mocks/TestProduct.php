@@ -10,6 +10,6 @@ class TestProduct extends Model
 {
     use HasFactory;
     use Taxable;
-    
+
     protected $table = 'products';
 }

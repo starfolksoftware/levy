@@ -42,24 +42,24 @@ class Levy
      * @var string
      */
     public static $tenantModel;
-    
+
     /**
      * The callback to perform additional validation when creating new tax.
-     * 
+     *
      * @var callable
      */
     public static $validateTaxCreation;
 
     /**
      * The callback to perform additional validation when updating a tax.
-     * 
+     *
      * @var callable
      */
     public static $validateTaxUpdate;
 
     /**
      * The callback to perform additional validation when deleting a tax.
-     * 
+     *
      * @var callable
      */
     public static $validateTaxDeletion;
@@ -84,7 +84,7 @@ class Levy
     {
         static::$tenantModel = $model;
 
-        return new static;
+        return new static();
     }
 
     /**
@@ -96,7 +96,7 @@ class Levy
     {
         $model = static::tenantModel();
 
-        return new $model;
+        return new $model();
     }
 
     /**
@@ -129,7 +129,7 @@ class Levy
     {
         $model = static::taxModel();
 
-        return new $model;
+        return new $model();
     }
 
     /**
@@ -142,7 +142,7 @@ class Levy
     {
         static::$taxModel = $model;
 
-        return new static;
+        return new static();
     }
 
     /**
@@ -220,7 +220,7 @@ class Levy
     {
         static::$registersRoutes = false;
 
-        return new static;
+        return new static();
     }
 
     /**
@@ -232,7 +232,7 @@ class Levy
     {
         static::$runsMigrations = false;
 
-        return new static;
+        return new static();
     }
 
     /**
@@ -244,7 +244,7 @@ class Levy
     {
         static::$supportsTenants = true;
 
-        return new static;
+        return new static();
     }
 
     /**
@@ -256,7 +256,7 @@ class Levy
     {
         static::$supportsTenants = false;
 
-        return new static;
+        return new static();
     }
 
     /**

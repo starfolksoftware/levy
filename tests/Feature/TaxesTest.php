@@ -28,7 +28,7 @@ test('tax can be created', function () {
 
 test('tax can be updated', function () {
     $user = TestUser::first();
-    
+
     $tax = Tax::factory()->create();
 
     $response = actingAs($user)->put(route('taxes.update', $tax), [
@@ -49,7 +49,7 @@ test('tax can be updated', function () {
 
 test('tax can be deleted', function () {
     $user = TestUser::first();
-    
+
     $tax = Tax::factory()->create();
 
     $response = actingAs($user)->delete(route('taxes.destroy', $tax), [
