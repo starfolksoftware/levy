@@ -64,7 +64,7 @@ trait Taxable
 
         collect($taxes)->each(function ($tax) use ($builder) {
             $builder->whereHas('taxes', function (Builder $builder) use ($tax) {
-                return $builder->where('id', $tax);
+                return $builder->where('taxes.id', $tax);
             });
         });
 
@@ -83,7 +83,7 @@ trait Taxable
         $taxes = $this->prepareTaxIds($taxes);
 
         return $builder->whereHas('taxes', function (Builder $builder) use ($taxes) {
-            $builder->whereIn('id', $taxes);
+            $builder->whereIn('taxes.id', $taxes);
         });
     }
 
@@ -99,7 +99,7 @@ trait Taxable
         $taxes = $this->prepareTaxIds($taxes);
 
         return $builder->whereDoesntHave('taxes', function (Builder $builder) use ($taxes) {
-            $builder->whereIn('id', $taxes);
+            $builder->whereIn('taxes.id', $taxes);
         });
     }
 
