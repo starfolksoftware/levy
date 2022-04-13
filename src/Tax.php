@@ -42,7 +42,7 @@ class Tax extends Model
      */
     public function tenant()
     {
-        return $this->belongsTo(Levy::$tenantModel, 'tenant_id');
+        return $this->belongsTo(Levy::$TeamModel, 'tenant_id');
     }
 
     /**

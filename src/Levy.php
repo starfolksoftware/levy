@@ -30,18 +30,18 @@ class Levy
     public static $taxModel = 'StarfolkSoftware\\Levy\\Tax';
 
     /**
-     * Indicates if Levy should support multiple tenants.
+     * Indicates if Levy should support teams.
      *
      * @var bool
      */
-    public static $supportsTenants = false;
+    public static $supportsTeams = false;
 
     /**
      * The tenant model that should be used by Levy.
      *
      * @var string
      */
-    public static $tenantModel;
+    public static $TeamModel;
 
     /**
      * The callback to perform additional validation when creating new tax.
@@ -69,9 +69,9 @@ class Levy
      *
      * @return string
      */
-    public static function tenantModel()
+    public static function TeamModel()
     {
-        return static::$tenantModel;
+        return static::$TeamModel;
     }
 
     /**
@@ -80,9 +80,9 @@ class Levy
      * @param  string  $model
      * @return static
      */
-    public static function useTenantModel(string $model)
+    public static function useTeamModel(string $model)
     {
-        static::$tenantModel = $model;
+        static::$TeamModel = $model;
 
         return new static();
     }
@@ -92,9 +92,9 @@ class Levy
      *
      * @return mixed
      */
-    public static function newTenantModel()
+    public static function newTeamModel()
     {
-        $model = static::tenantModel();
+        $model = static::TeamModel();
 
         return new $model();
     }
@@ -107,7 +107,7 @@ class Levy
      */
     public static function findTenantByIdOrFail($id)
     {
-        return static::newTenantModel()->whereId($id)->firstOrFail();
+        return static::newTeamModel()->whereId($id)->firstOrFail();
     }
 
     /**
@@ -238,23 +238,12 @@ class Levy
     /**
      * Configure Levy to support multiple tenants.
      *
+     * @param  bool  $value
      * @return static
      */
-    public static function tenantable()
+    public static function supportsTeams(bool $value = true)
     {
-        static::$supportsTenants = true;
-
-        return new static();
-    }
-
-    /**
-     * Reset support for multiple tenants.
-     *
-     * @return static
-     */
-    public static function resetTenantableOption()
-    {
-        static::$supportsTenants = false;
+        static::$supportsTeams = $value;
 
         return new static();
     }

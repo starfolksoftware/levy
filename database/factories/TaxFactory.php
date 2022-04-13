@@ -18,8 +18,8 @@ class TaxFactory extends Factory
             'rate' => $this->faker->randomFloat(2, 0, 100),
         ];
 
-        if (Levy::$supportsTenants) {
-            $defs['tenant_id'] = Levy::newTenantModel()->factory();
+        if (Levy::$supportsTeams) {
+            $defs['tenant_id'] = Levy::newTeamModel()->factory();
         }
 
         return $defs;

@@ -2,19 +2,19 @@
 
 use StarfolkSoftware\Levy\Contracts\CreatesTaxes;
 use StarfolkSoftware\Levy\Levy;
-use StarfolkSoftware\Levy\Tests\Mocks\TenantModel;
+use StarfolkSoftware\Levy\Tests\Mocks\TeamModel;
 use StarfolkSoftware\Levy\Tests\Mocks\TestUser;
 
 beforeAll(function () {
-    Levy::resetTenantableOption();
+    Levy::supportsTeams(false);
 });
 
-it('can create a tax with multi-tenant support', function () {
-    $tenant = TenantModel::forceCreate(['name' => 'Test Tenant']);
+it('can create a tax with team support', function () {
+    $tenant = TeamModel::forceCreate(['name' => 'Test Tenant']);
 
-    Levy::tenantable();
+    Levy::supportsTeams();
 
-    Levy::useTenantModel(TenantModel::class);
+    Levy::useTeamModel(TeamModel::class);
 
     $createsTaxes = app(CreatesTaxes::class);
 

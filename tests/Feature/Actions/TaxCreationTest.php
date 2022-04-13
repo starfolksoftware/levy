@@ -4,7 +4,7 @@ use StarfolkSoftware\Levy\Contracts\CreatesTaxes;
 use StarfolkSoftware\Levy\Tests\Mocks\TestUser;
 
 beforeAll(function () {
-    \StarfolkSoftware\Levy\Levy::resetTenantableOption();
+    \StarfolkSoftware\Levy\Levy::supportsTeams(false);
 });
 
 it('can create a tax', function () {

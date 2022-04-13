@@ -5,7 +5,7 @@ use StarfolkSoftware\Levy\Tax;
 use StarfolkSoftware\Levy\Tests\Mocks\TestUser;
 
 beforeAll(function () {
-    \StarfolkSoftware\Levy\Levy::resetTenantableOption();
+    \StarfolkSoftware\Levy\Levy::supportsTeams(false);
 });
 
 it('can update a tax', function () {
