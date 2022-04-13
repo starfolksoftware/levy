@@ -5,12 +5,9 @@ namespace StarfolkSoftware\Levy\Tests;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as Orchestra;
 use StarfolkSoftware\Levy\LevyServiceProvider;
 use StarfolkSoftware\Levy\Tests\Mocks\TestUser;
-
-uses(RefreshDatabase::class);
 
 class TestCase extends Orchestra
 {

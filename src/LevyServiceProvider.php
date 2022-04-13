@@ -24,7 +24,10 @@ class LevyServiceProvider extends PackageServiceProvider
             ->hasCommand(InstallCommand::class);
 
         if (Levy::$runsMigrations) {
-            $package->hasMigration('create_taxes_table');
+            $package->hasMigrations(
+                'create_taxes_table',
+                'create_taxables_table',
+            );
         }
 
         if (Levy::$registersRoutes) {

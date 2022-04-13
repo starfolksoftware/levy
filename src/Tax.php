@@ -4,6 +4,7 @@ namespace StarfolkSoftware\Levy;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Tax extends Model
 {
@@ -42,5 +43,16 @@ class Tax extends Model
     public function tenant()
     {
         return $this->belongsTo(Levy::$tenantModel, 'tenant_id');
+    }
+
+    /**
+     * Get all attached models of the given class to the category.
+     *
+     * @param string $class
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function entries(string $class): MorphToMany
+    {
+        return $this->morphedByMany($class, 'taxable', 'taxables', 'tax_id', 'taxable_id', 'id', 'id');
     }
 }
