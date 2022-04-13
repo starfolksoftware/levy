@@ -36,17 +36,10 @@ return [
 ];
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="levy-views"
-```
-
 ## Usage
 
 ```php
-$levy = new StarfolkSoftware\Levy();
-echo $levy->echoPhrase('Hello, StarfolkSoftware!');
+
 ```
 
 ## Testing
