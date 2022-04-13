@@ -8,7 +8,7 @@ beforeAll(function () {
     \StarfolkSoftware\Levy\Levy::resetTenantableOption();
 });
 
-it('can delete a tax', function() {
+it('can delete a tax', function () {
     $deletesTaxes = app(DeletesTaxes::class);
 
     $user = TestUser::first();

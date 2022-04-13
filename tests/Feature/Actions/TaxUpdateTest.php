@@ -8,7 +8,7 @@ beforeAll(function () {
     \StarfolkSoftware\Levy\Levy::resetTenantableOption();
 });
 
-it('can update a tax', function() {
+it('can update a tax', function () {
     $updatesTaxes = app(UpdatesTaxes::class);
 
     $user = TestUser::first();
@@ -16,7 +16,9 @@ it('can update a tax', function() {
     $tax = Tax::factory()->create();
 
     $tax = $updatesTaxes(
-        $user, $tax, [
+        $user,
+        $tax,
+        [
             'type' => 'normal',
             'name' => 'Tax',
             'rate' => 7.5,

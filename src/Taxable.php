@@ -2,12 +2,12 @@
 
 namespace StarfolkSoftware\Levy;
 
-use Illuminate\Support\Arr;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Collection as BaseCollection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection as BaseCollection;
 
 trait Taxable
 {
@@ -43,10 +43,10 @@ trait Taxable
     public function taxes(): MorphToMany
     {
         return $this->morphToMany(
-            Levy::$taxModel, 
-            'taxable', 
-            'taxables', 
-            'taxable_id', 
+            Levy::$taxModel,
+            'taxable',
+            'taxables',
+            'taxable_id',
             'tax_id'
         )->withTimestamps();
     }
@@ -139,7 +139,6 @@ trait Taxable
 
         return collect($taxes)->diff($this->taxes->pluck('id'))->isEmpty();
     }
-
 
     /**
      * Sync model taxes.

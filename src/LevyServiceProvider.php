@@ -31,7 +31,7 @@ class LevyServiceProvider extends PackageServiceProvider
             $package->hasRoutes('web');
         }
     }
-    
+
     public function packageRegistered()
     {
         Levy::createTaxesUsing(CreateTax::class);
