@@ -18,12 +18,12 @@ class TaxController extends Controller
      */
     public function store(CreatesTaxes $createsTaxes)
     {
-        $createsTaxes(
+        $tax = $createsTaxes(
             request()->user(),
             request()->all()
         );
 
-        return request()->wantsJson() ? response()->json([]) : redirect()->to(
+        return request()->wantsJson() ? response()->json(['tax' => $tax]) : redirect()->to(
             request()->get('redirect', Levy::redirects('store', '/'))
         );
     }
@@ -37,13 +37,13 @@ class TaxController extends Controller
      */
     public function update(Tax $tax, UpdatesTaxes $updatesTaxes)
     {
-        $updatesTaxes(
+        $tax = $updatesTaxes(
             request()->user(),
             $tax,
             request()->all()
         );
 
-        return request()->wantsJson() ? response()->json([]) : redirect()->to(
+        return request()->wantsJson() ? response()->json(['tax' => $tax]) : redirect()->to(
             request()->get('redirect', Levy::redirects('update', '/'))
         );
     }
