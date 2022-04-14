@@ -44,7 +44,7 @@ class TestCase extends Orchestra
         $migration = include __DIR__.'/../database/migrations/create_taxes_table.php.stub';
         $migration->up();
 
-        Schema::create('tenants', function (Blueprint $table) {
+        Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();

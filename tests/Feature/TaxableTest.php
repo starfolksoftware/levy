@@ -18,7 +18,7 @@ it('can sync tax to a model', function () {
 
     expect($product->taxes()->first())
         ->id->toBe($tax->id)
-        ->tenant_id->toBeNull()
+        ->team_id->toBeNull()
         ->type->toBe($tax->type)
         ->name->toBe($tax->name)
         ->rate->toBe($tax->rate);
@@ -45,7 +45,7 @@ it('can attach and detach tax to a model', function () {
 
     expect($product->taxes()->first())
         ->id->toBe($tax1->id)
-        ->tenant_id->toBeNull()
+        ->team_id->toBeNull()
         ->type->toBe($tax1->type)
         ->name->toBe($tax1->name)
         ->rate->toBe($tax1->rate);

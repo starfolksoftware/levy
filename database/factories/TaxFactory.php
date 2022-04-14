@@ -19,7 +19,7 @@ class TaxFactory extends Factory
         ];
 
         if (Levy::$supportsTeams) {
-            $defs['tenant_id'] = Levy::newTeamModel()->factory();
+            $defs['team_id'] = Levy::newTeamModel()->factory();
         }
 
         return $defs;

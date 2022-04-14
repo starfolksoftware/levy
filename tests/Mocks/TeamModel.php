@@ -9,5 +9,5 @@ class TeamModel extends Model
 {
     use TeamHasTaxes;
 
-    protected $table = 'tenants';
+    protected $table = 'teams';
 }

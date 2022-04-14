@@ -10,7 +10,7 @@ beforeAll(function () {
 });
 
 it('can create a tax with team support', function () {
-    $team = TeamModel::forceCreate(['name' => 'Test Tenant']);
+    $team = TeamModel::forceCreate(['name' => 'Test Team']);
 
     Levy::supportsTeams();
 
@@ -37,7 +37,7 @@ it('can create a tax with team support', function () {
 
     expect($tax->refresh()->team)
         ->id->toBe($team->id)
-        ->name->toBe('Test Tenant');
+        ->name->toBe('Test Team');
 
     expect($team->refresh()->taxes()->count())
         ->toBe(1);
