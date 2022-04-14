@@ -20,7 +20,7 @@ class Tax extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var string[]
      */
     protected $fillable = [
         'type',
@@ -31,7 +31,7 @@ class Tax extends Model
     /**
      * The attributes that should be cast.
      *
-     * @var array
+     * @var array<string, string>
      */
     protected $casts = [];
 

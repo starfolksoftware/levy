@@ -18,7 +18,7 @@ class CreateTax implements CreatesTaxes
      */
     public function __invoke($user, array $data, $teamId = null)
     {
-        if (Levy::$validateTaxCreation) {
+        if (is_callable(Levy::$validateTaxCreation)) {
             call_user_func(
                 Levy::$validateTaxCreation,
                 $user,

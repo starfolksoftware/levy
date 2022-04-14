@@ -17,7 +17,7 @@ class DeleteTax implements DeletesTaxes
      */
     public function __invoke($user, Tax $tax)
     {
-        if (Levy::$validateTaxDeletion) {
+        if (is_callable(Levy::$validateTaxDeletion)) {
             call_user_func(
                 Levy::$validateTaxUpdate,
                 $user,

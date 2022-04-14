@@ -19,7 +19,7 @@ class UpdateTax implements UpdatesTaxes
      */
     public function __invoke($user, Tax $tax, array $data)
     {
-        if (Levy::$validateTaxCreation) {
+        if (is_callable(Levy::$validateTaxCreation)) {
             call_user_func(
                 Levy::$validateTaxUpdate,
                 $user,

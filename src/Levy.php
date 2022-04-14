@@ -6,7 +6,7 @@ use StarfolkSoftware\Levy\Contracts\CreatesTaxes;
 use StarfolkSoftware\Levy\Contracts\DeletesTaxes;
 use StarfolkSoftware\Levy\Contracts\UpdatesTaxes;
 
-class Levy
+final class Levy
 {
     /**
      * Indicates if Levy routes will be registered.
@@ -153,7 +153,7 @@ class Levy
      */
     public static function createTaxesUsing(string $class)
     {
-        return app()->singleton(CreatesTaxes::class, $class);
+        app()->singleton(CreatesTaxes::class, $class);
     }
 
     /**
@@ -175,7 +175,7 @@ class Levy
      */
     public static function updateTaxesUsing(string $class)
     {
-        return app()->singleton(UpdatesTaxes::class, $class);
+        app()->singleton(UpdatesTaxes::class, $class);
     }
 
     /**
@@ -197,7 +197,7 @@ class Levy
      */
     public static function deleteTaxesUsing(string $class)
     {
-        return app()->singleton(DeletesTaxes::class, $class);
+        app()->singleton(DeletesTaxes::class, $class);
     }
 
     /**
