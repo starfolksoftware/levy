@@ -2,7 +2,7 @@
 
 namespace StarfolkSoftware\Levy;
 
-trait TenantHasTaxes
+trait TeamHasTaxes
 {
     /**
      * Get the taxes associated with the tenant.
@@ -11,6 +11,6 @@ trait TenantHasTaxes
      */
     public function taxes()
     {
-        return $this->hasMany(Levy::$taxModel, 'tenant_id');
+        return $this->hasMany(Levy::$taxModel, 'team_id');
     }
 }

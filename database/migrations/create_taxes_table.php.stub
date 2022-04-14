@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('taxes', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('tenant_id')->nullable();
+            $table->unsignedBigInteger('team_id')->nullable();
             
             $table->string('type')->nullable();
             $table->string('name');

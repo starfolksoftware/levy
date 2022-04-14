@@ -13,10 +13,10 @@ class CreateTax implements CreatesTaxes
      *
      * @param  mixed  $user
      * @param  array  $data
-     * @param  mixed  $tenantId
+     * @param  mixed  $teamId
      * @return \StarfolkSoftware\Levy\Tax
      */
-    public function __invoke($user, array $data, $tenantId = null)
+    public function __invoke($user, array $data, $teamId = null)
     {
         if (Levy::$validateTaxCreation) {
             call_user_func(
@@ -39,7 +39,7 @@ class CreateTax implements CreatesTaxes
         ])->toArray();
 
         return Levy::$supportsTeams ?
-            Levy::findTenantByIdOrFail($tenantId)->taxes()->create($fields) :
+            Levy::findTeamByIdOrFail($teamId)->taxes()->create($fields) :
             Levy::newTaxModel()->create($fields);
     }
 }

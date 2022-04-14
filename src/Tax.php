@@ -36,13 +36,13 @@ class Tax extends Model
     protected $casts = [];
 
     /**
-     * Get the tenant that owns the tax.
+     * Get the team that owns the tax.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function tenant()
+    public function team()
     {
-        return $this->belongsTo(Levy::$TeamModel, 'tenant_id');
+        return $this->belongsTo(Levy::$teamModel, 'team_id');
     }
 
     /**

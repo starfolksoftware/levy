@@ -3,11 +3,11 @@
 namespace StarfolkSoftware\Levy\Tests\Mocks;
 
 use Illuminate\Database\Eloquent\Model;
-use StarfolkSoftware\Levy\TenantHasTaxes;
+use StarfolkSoftware\Levy\TeamHasTaxes;
 
 class TeamModel extends Model
 {
-    use TenantHasTaxes;
+    use TeamHasTaxes;
 
     protected $table = 'tenants';
 }

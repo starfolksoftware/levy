@@ -37,11 +37,11 @@ class Levy
     public static $supportsTeams = false;
 
     /**
-     * The tenant model that should be used by Levy.
+     * The team model that should be used by Levy.
      *
      * @var string
      */
-    public static $TeamModel;
+    public static $teamModel;
 
     /**
      * The callback to perform additional validation when creating new tax.
@@ -69,45 +69,45 @@ class Levy
      *
      * @return string
      */
-    public static function TeamModel()
+    public static function teamModel()
     {
-        return static::$TeamModel;
+        return static::$teamModel;
     }
 
     /**
-     * Specify the tenant model that should be used by Levy.
+     * Specify the team model that should be used by Levy.
      *
      * @param  string  $model
      * @return static
      */
-    public static function useTeamModel(string $model)
+    public static function useteamModel(string $model)
     {
-        static::$TeamModel = $model;
+        static::$teamModel = $model;
 
         return new static();
     }
 
     /**
-     * Get a new instance of the tenant model.
+     * Get a new instance of the team model.
      *
      * @return mixed
      */
-    public static function newTeamModel()
+    public static function newteamModel()
     {
-        $model = static::TeamModel();
+        $model = static::teamModel();
 
         return new $model();
     }
 
     /**
-     * Find a tenant instance by the given ID.
+     * Find a team instance by the given ID.
      *
      * @param  mixed  $id
      * @return mixed
      */
-    public static function findTenantByIdOrFail($id)
+    public static function findTeamByIdOrFail($id)
     {
-        return static::newTeamModel()->whereId($id)->firstOrFail();
+        return static::newteamModel()->whereId($id)->firstOrFail();
     }
 
     /**
@@ -236,7 +236,7 @@ class Levy
     }
 
     /**
-     * Configure Levy to support multiple tenants.
+     * Configure Levy to support multiple teams.
      *
      * @param  bool  $value
      * @return static
