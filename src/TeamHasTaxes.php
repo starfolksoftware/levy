@@ -5,7 +5,7 @@ namespace StarfolkSoftware\Levy;
 trait TeamHasTaxes
 {
     /**
-     * Get the taxes associated with the tenant.
+     * Get the taxes associated with the team.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
