@@ -80,7 +80,7 @@ final class Levy
      * @param  string  $model
      * @return static
      */
-    public static function useteamModel(string $model)
+    public static function useTeamModel(string $model)
     {
         static::$teamModel = $model;
 
@@ -92,7 +92,7 @@ final class Levy
      *
      * @return mixed
      */
-    public static function newteamModel()
+    public static function newTeamModel()
     {
         $model = static::teamModel();
 
